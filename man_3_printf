@@ -1,0 +1,34 @@
+.TH man 3 "26 October 2020" "0.01" "_printf man page"
+
+.SH NAME
+.B _printf - This is a recreation of the printf() function.
+
+.SH SYNOPSIS
+- To use this function, use the "holberton.h" header file
+.SH DESCRIPTION
+- The _printf function produces output based on format specifiers described below.
+.SH CONVERSION SPECIFIERS
+.B c
+- Prints a character
+.br
+.B d
+- Prints a decimal
+.br
+.B i,d
+- Prints an integer/decimal
+.br
+.B s
+- Prints a string
+.br
+.B %
+- Prints a percentage, the character is not converted
+.SH RETURN VALUE
+- If successful, the function returns printed characters not including the terminating null character
+.SH SEE ALSO
+- printf(3)
+.br
+.SH BUGS
+There are no known bugs.
+
+.SH "AUTHOR"
+Thapelo Khantsi and Wanjiku Karugi
