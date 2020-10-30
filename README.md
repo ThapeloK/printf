@@ -79,10 +79,10 @@ Function name | Description | Format Specifier
 
 ******************************************************************************
 
-## Authors :couple:
+## Authors :
 * Thapelo Khantsi @[ThapeloK](https://github.com/ThapeloK)}
 
-* Wanjiku Karugi @[kaci65] (https://github.com/kaci65)
+* @[kaci65] (https://github.com/kaci65)
 
 ## License
 
