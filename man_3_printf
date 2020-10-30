@@ -11,9 +11,6 @@
 .B c
 - Prints a character
 .br
-.B d
-- Prints a decimal
-.br
 .B i,d
 - Prints an integer/decimal
 .br

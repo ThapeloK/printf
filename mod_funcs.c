@@ -34,7 +34,7 @@ int print_string(va_list argptr)
 	}
 
 	index = 0;
-	while (str[index] != '\0')
+	while (str[index])
 	{
 		f_putchar(str[index]);
 		index++;
@@ -43,60 +43,45 @@ int print_string(va_list argptr)
 }
 
 /**
- * print_int - function that prints integer
+ * print_digit - function that prints integer
  * @argptr: argument list pointer to integer to be printed
  * Return: int
  */
-int print_int(va_list argptr)
+int print_digit(va_list argptr)
 {
-	unsigned int index, count = 1;
+	int num, num_d;
+	int n = va_arg(argptr, int);
+	int index = 1, aux = 1;
+	int last = n % 10;
 
-	index = va_arg(argptr, int);
+	n = n / 10;
+	num = n;
 
-	loop_num(index);
-
-	if (index < 10)
+	if (last < 0)
 	{
-		return (count);
-	}
-	else
-	{
-		while ((index / 10) > 0)
-		{
-			index = index / 10;
-			count++;
-		}
-		return (count);
-	}
-}
-
-/**
- * print_dec - function that prints a float
- * @argptr: argument list pointer to string to be printed
- * Return: int
- */
-int print_dec(va_list argptr)
-{
-	char *buffer;
-	int index, num;
-
-	num = va_arg(argptr, int);
-
-	if (!num)
-	{
-		num = 0;
-	}
-
-	index = loop_num(num);
-
-	if (num < 0)
-	{
+		f_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
 		index++;
 	}
-
-	buffer = my_itoa(num);
-	write(1, buffer, sizeof(char) * index);
-
-	free(buffer);
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			aux = aux * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (aux > 0)
+		{
+			num_d = num / aux;
+			f_putchar(num_d + '0');
+			num = num - (num_d * aux);
+			aux = aux / 10;
+			index++;
+		}
+	}
+	f_putchar(last + '0');
 	return (index);
 }
