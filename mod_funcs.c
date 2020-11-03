@@ -85,3 +85,52 @@ int print_digit(va_list argptr)
 	f_putchar(last + '0');
 	return (index);
 }
+
+/**
+ * print_rot13 - encodes a string into rot13
+ * @argptr: argument list pointer to string to be printed
+ * Return: integer
+ */
+
+int print_rot13(va_list argptr)
+{
+	int i;
+	int j;
+
+	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *c, *str;
+
+	c = va_arg(argptr, char*);
+	if (c == NULL)
+	{
+		return (0);
+	}
+	str = malloc(1024); /* one kilobyte */
+	if (str == NULL)
+	{
+		return (-1);
+	}
+	for (i = 0; c[i] != '\0'; i++)
+	{
+		for (j = 0; j < 51; j++)
+		{
+			if (c[i] == input[j])
+			{
+				str[i] = output[j];
+				break;
+			}
+			else
+			{
+				str[i] = c[i];
+			}
+		}
+	}
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		f_putchar(str[i]);
+	}
+	free(str);
+	return (i);
+}
+

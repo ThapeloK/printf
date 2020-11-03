@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 		{"i", print_digit},
 		{"d", print_digit},
 		{"s", print_string},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 
